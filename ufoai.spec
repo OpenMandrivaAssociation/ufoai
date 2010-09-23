@@ -23,7 +23,9 @@ BuildRequires:	openal-devel
 BuildRequires:	gtksourceview-devel
 BuildRequires:	gtkglext-devel
 BuildRequires:	gtk+-devel
-BuildRequires:	xvid-devel
+# xvid is in plf, but we can build without support, adding dlopen() support and
+# a suggests on it could be done though..
+#BuildRequires:	xvid-devel
 BuildRequires:	libtheora-devel
 
 %description
