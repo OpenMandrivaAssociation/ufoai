@@ -61,7 +61,7 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 install -m644 src/ports/linux/ufo.png -D %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %files -f ufoai.lang
-%doc INSTALL README LICENSES
+%doc README LICENSES
 %{_gamesbindir}/ufo*
 %dir %{_gamesdatadir}/ufoai
 %dir %{_gamesdatadir}/ufoai/base
