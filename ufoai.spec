@@ -1,6 +1,6 @@
 Name:		ufoai
 Version:	2.3.1
-Release:	%mkrel 1
+Release:	1
 URL:		http://ufoai.sourceforge.net/
 Source0:	%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
@@ -8,7 +8,6 @@ Patch0:		ufoai-2.3-almost-fhs-compliance.patch
 License:	GPLv2+
 Group:		Games/Strategy
 Summary:	UFO: Alien Invasion
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %rename ufo
 
@@ -54,18 +53,13 @@ mkdir base
 %make
 
 %install
-rm -rf %{buildroot}
 make install_exec DESTDIR=%{buildroot}
 
 %find_lang ufoai
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 install -m644 src/ports/linux/ufo.png -D %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
-%clean
-rm -rf %{buildroot}
-
 %files -f ufoai.lang
-%defattr(-,root,root)
 %doc INSTALL README LICENSES
 %{_gamesbindir}/ufo*
 %dir %{_gamesdatadir}/ufoai
@@ -73,4 +67,3 @@ rm -rf %{buildroot}
 %{_gamesdatadir}/ufoai/base/game.so
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-
