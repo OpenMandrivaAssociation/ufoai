@@ -14,6 +14,7 @@ Summary:	UFO: Alien Invasion
 Requires:	%{name}-data = %{version}
 
 BuildRequires:	curl-devel
+BuildRequires:	desktop-file-utils
 BuildRequires:	SDL-devel >= 1.2.10
 BuildRequires:	SDL_image-devel >= 1.2.7
 BuildRequires:	SDL_mixer-devel >= 1.2.7
