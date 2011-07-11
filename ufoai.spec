@@ -49,7 +49,8 @@ autoreconf
 		--datadir=%{_gamesdatadir} \
 		--localedir=%{_datadir}/locale \
 		--enable-release 
-mkdir base
+# (proyvind): required for output of compiled game.so (patch would be better)
+mkdir -p base
 %make
 
 %install
