@@ -1,5 +1,5 @@
 Name:		ufoai
-Version:	2.3
+Version:	2.3.1
 Release:	%mkrel 1
 URL:		http://ufoai.sourceforge.net/
 Source0:	%{name}-%{version}-source.tar.bz2
@@ -50,6 +50,7 @@ autoreconf
 		--datadir=%{_gamesdatadir} \
 		--localedir=%{_datadir}/locale \
 		--enable-release 
+mkdir base
 %make
 
 %install
@@ -65,7 +66,7 @@ rm -rf %{buildroot}
 
 %files -f ufoai.lang
 %defattr(-,root,root)
-%doc INSTALL README
+%doc INSTALL README LICENSES
 %{_gamesbindir}/ufo*
 %dir %{_gamesdatadir}/ufoai
 %dir %{_gamesdatadir}/ufoai/base
