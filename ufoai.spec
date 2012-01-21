@@ -1,10 +1,11 @@
 Name:		ufoai
 Version:	2.3.1
-Release:	1
+Release:	2
 URL:		http://ufoai.sourceforge.net/
 Source0:	%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		ufoai-2.3-almost-fhs-compliance.patch
+Patch1:		ufoai-2.3.1-libpng15.patch
 License:	GPLv2+
 Group:		Games/Strategy
 Summary:	UFO: Alien Invasion
@@ -42,6 +43,7 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 %prep
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1 -b .fhs~
+%patch1 -p1 -b .libpng15~
 autoreconf
 
 %build
