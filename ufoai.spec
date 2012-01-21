@@ -6,6 +6,7 @@ Source0:	%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		ufoai-2.3-almost-fhs-compliance.patch
 Patch1:		ufoai-2.3.1-libpng15.patch
+Patch2:		ufoai-2.3.1-pthread.patch
 License:	GPLv2+
 Group:		Games/Strategy
 Summary:	UFO: Alien Invasion
@@ -44,6 +45,7 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1 -b .fhs~
 %patch1 -p1 -b .libpng15~
+%patch2 -p1 -b .pthread~
 autoreconf
 
 %build
