@@ -13,20 +13,20 @@ Summary:	UFO: Alien Invasion
 
 Requires:	%{name}-data = %{version}
 
-BuildRequires:	curl-devel
+BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	desktop-file-utils
-BuildRequires:	SDL-devel >= 1.2.10
-BuildRequires:	SDL_image-devel >= 1.2.7
-BuildRequires:	SDL_mixer-devel >= 1.2.7
-BuildRequires:	SDL_ttf-devel >= 2.0.7
-#BuildRequires:	openal-devel
-#BuildRequires:	gtksourceview-devel
-#BuildRequires:	gtkglext-devel
-#BuildRequires:	gtk+-devel
+BuildRequires:	pkgconfig(sdl) >= 1.2.10
+BuildRequires:	pkgconfig(SDL_image)  >= 1.2.7
+BuildRequires:	pkgconfig(SDL_mixer) >= 1.2.7
+BuildRequires:	pkgconfig(SDL_ttf) >= 2.0.7
+#BuildRequires:	pkgconfig(openal)
+#BuildRequires:	pkgconfig(gtksourceview-2.0)
+#BuildRequires:	pkgconfig(gtkglext-1.0)
+#BuildRequires:	pkgconfig(gtk+)
 # xvid is in plf, but we can build without support, adding dlopen() support and
 # a suggests on it could be done though..
 #BuildRequires:	xvid-devel
-BuildRequires:	libtheora-devel
+BuildRequires:	pkgconfig(theoradec)
 
 %description
 UFO: ALIEN INVASION is a strategy game featuring tactical combat against
