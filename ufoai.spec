@@ -48,7 +48,11 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 		--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir}/ufoai \
 		--localedir=%{_localedir} \
-		--enable-release 
+		--enable-release \
+%ifarch x86_64
+		--enable-sse
+%endif
+
 %make
 
 %install
