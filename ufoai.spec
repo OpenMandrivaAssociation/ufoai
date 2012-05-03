@@ -1,12 +1,10 @@
 Name:		ufoai
-Version:	2.3.1
-Release:	2
+Version:	2.4
+Release:	1
 URL:		http://ufoai.sourceforge.net/
-Source0:	%{name}-%{version}-source.tar.bz2
+Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
-Patch0:		ufoai-2.3-almost-fhs-compliance.patch
-Patch1:		ufoai-2.3.1-libpng15.patch
-Patch2:		ufoai-2.3.1-pthread.patch
+Patch0:		ufoai-2.4-destdir-support.patch
 License:	GPLv2+
 Group:		Games/Strategy
 Summary:	UFO: Alien Invasion
@@ -21,10 +19,10 @@ BuildRequires:	SDL-devel >= 1.2.10
 BuildRequires:	SDL_image-devel >= 1.2.7
 BuildRequires:	SDL_mixer-devel >= 1.2.7
 BuildRequires:	SDL_ttf-devel >= 2.0.7
-BuildRequires:	openal-devel
-BuildRequires:	gtksourceview-devel
-BuildRequires:	gtkglext-devel
-BuildRequires:	gtk+-devel
+#BuildRequires:	openal-devel
+#BuildRequires:	gtksourceview-devel
+#BuildRequires:	gtkglext-devel
+#BuildRequires:	gtk+-devel
 # xvid is in plf, but we can build without support, adding dlopen() support and
 # a suggests on it could be done though..
 #BuildRequires:	xvid-devel
@@ -43,33 +41,31 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 
 %prep
 %setup -q -n %{name}-%{version}-source
-%patch0 -p1 -b .fhs~
-%patch1 -p1 -b .libpng15~
-%patch2 -p1 -b .pthread~
-autoreconf
+%patch0 -p1 -b .destdir~
 
 %build
-%configure	--bindir=%{_gamesbindir} \
-		--datarootdir=%{_gamesdatadir} \
-		--datadir=%{_gamesdatadir} \
-		--localedir=%{_datadir}/locale \
+./configure	--prefix=%{_prefix} \
+		--bindir=%{_gamesbindir} \
+		--datadir=%{_gamesdatadir}/ufoai \
+		--localedir=%{_localedir} \
 		--enable-release 
-# (proyvind): required for output of compiled game.so (patch would be better)
-mkdir -p base
 %make
 
 %install
-make install_exec DESTDIR=%{buildroot}
+%makeinstall_std
 
 %find_lang ufoai
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 install -m644 src/ports/linux/ufo.png -D %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %files -f ufoai.lang
-%doc README LICENSES
+%doc LICENSES
 %{_gamesbindir}/ufo*
 %dir %{_gamesdatadir}/ufoai
+%{_gamesdatadir}/ufoai/memory
+%{_gamesdatadir}/ufoai/ufo*
 %dir %{_gamesdatadir}/ufoai/base
 %{_gamesdatadir}/ufoai/base/game.so
+%{_gamesdatadir}/ufoai/base/*.pk3
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
