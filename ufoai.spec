@@ -5,6 +5,8 @@ URL:		http://ufoai.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		ufoai-2.4-destdir-support.patch
+Patch1:		ufoai-2.4-dont-strip-binaries.patch
+
 License:	GPLv2+
 Group:		Games/Strategy
 Summary:	UFO: Alien Invasion
@@ -42,6 +44,7 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 %prep
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1 -b .destdir~
+%patch1 -p1 -b .nostrip~
 
 %build
 ./configure	--prefix=%{_prefix} \
