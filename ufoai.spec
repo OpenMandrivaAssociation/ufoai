@@ -83,5 +83,7 @@ install -m644 src/ports/linux/ufo.png -D %{buildroot}%{_datadir}/pixmaps/%{name}
 %dir %{_gamesdatadir}/ufoai/base
 %{_gamesdatadir}/ufoai/base/game.so
 %{_gamesdatadir}/ufoai/base/*.pk3
+%dir %{_gamesdatadir}/ufoai/radiant
+%{_gamesdatadir}/ufoai/radiant/uforadiant/
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
