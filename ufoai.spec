@@ -21,10 +21,10 @@ BuildRequires:	pkgconfig(sdl) >= 1.2.10
 BuildRequires:	pkgconfig(SDL_image)  >= 1.2.7
 BuildRequires:	pkgconfig(SDL_mixer) >= 1.2.7
 BuildRequires:	pkgconfig(SDL_ttf) >= 2.0.7
-#BuildRequires:	pkgconfig(openal)
-#BuildRequires:	pkgconfig(gtksourceview-2.0)
-#BuildRequires:	pkgconfig(gtkglext-1.0)
-#BuildRequires:	pkgconfig(gtk+)
+BuildRequires:	pkgconfig(openal)
+BuildRequires:	pkgconfig(gtksourceview-2.0)
+BuildRequires:	pkgconfig(gdkglext-x11-1.0)
+BuildRequires:	pkgconfig(gtk+)
 # xvid is in plf, but we can build without support, adding dlopen() support and
 # a suggests on it could be done though..
 #BuildRequires:	xvid-devel
