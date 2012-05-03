@@ -50,9 +50,21 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 		--localedir=%{_localedir} \
 		--enable-release \
 %ifarch x86_64
-		--enable-sse
+		--enable-sse \
 %endif
-
+		--enable-cgame-campaign \
+		--enable-cgame-multiplayer \
+		--enable-cgame-skirmish \
+		--enable-cgame-staticcampaign \
+		--enable-game \
+		--enable-memory \
+		--enable-testall \
+		--enable-ufo2map \
+		--enable-ufoded \
+		--enable-ufo \
+		--enable-ufomodel \
+		--enable-uforadiant \
+		--enable-ufoslicer
 %make
 
 %install
