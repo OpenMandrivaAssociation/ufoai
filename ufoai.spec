@@ -6,6 +6,7 @@ Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-source.tar.
 Source1:	%{name}.desktop
 Patch0:		ufoai-2.4-destdir-support.patch
 Patch1:		ufoai-2.4-dont-strip-binaries.patch
+Patch2:		ufoai-2.4-missing-shebang.patch
 
 License:	GPLv2+
 Group:		Games/Strategy
@@ -45,6 +46,7 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 %setup -q -n %{name}-%{version}-source
 %patch0 -p1 -b .destdir~
 %patch1 -p1 -b .nostrip~
+%patch2 -p1 -b .shebang~
 
 %build
 ./configure	--prefix=%{_prefix} \
@@ -72,6 +74,8 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 
 %install
 %makeinstall_std
+# Remove empty data files to avoid file conflict with data package
+rm -f %{buildroot}/%{_gamesdatadir}/%{name}/base/*pk3
 
 %find_lang ufoai
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
@@ -85,7 +89,6 @@ install -m644 src/ports/linux/ufo.png -D %{buildroot}%{_datadir}/pixmaps/%{name}
 %{_gamesdatadir}/ufoai/ufo*
 %dir %{_gamesdatadir}/ufoai/base
 %{_gamesdatadir}/ufoai/base/game.so
-%{_gamesdatadir}/ufoai/base/*.pk3
 %dir %{_gamesdatadir}/ufoai/radiant
 %{_gamesdatadir}/ufoai/radiant/uforadiant/
 %{_datadir}/pixmaps/%{name}.png
