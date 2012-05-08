@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(gtk+)
 # a suggests on it could be done though..
 #BuildRequires:	xvid-devel
 BuildRequires:	pkgconfig(theoradec)
+BuildRequires:	zip
 
 %description
 UFO: ALIEN INVASION is a strategy game featuring tactical combat against
@@ -70,8 +71,6 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 		--enable-ufomodel \
 		--enable-uforadiant \
 		--enable-ufoslicer
-# XXX workaround
-mkdir -p base/models
 %make
 
 %install
