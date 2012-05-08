@@ -70,6 +70,8 @@ is heavily inspired by the 'X-COM' series by Mythos and Microprose.
 		--enable-ufomodel \
 		--enable-uforadiant \
 		--enable-ufoslicer
+# XXX workaround
+mkdir -p base/models
 %make
 
 %install
