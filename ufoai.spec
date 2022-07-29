@@ -1,7 +1,7 @@
 Summary:	UFO: Alien Invasion
 Name:		ufoai
-Version:	2.4
-Release:	3
+Version:	2.5
+Release:	1
 License:	GPLv2+
 Group:		Games/Strategy
 Url:		http://ufoai.sourceforge.net/
