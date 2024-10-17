@@ -4,7 +4,7 @@ Version:	2.4
 Release:	3
 License:	GPLv2+
 Group:		Games/Strategy
-Url:		http://ufoai.sourceforge.net/
+Url:		https://ufoai.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-source.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		ufoai-2.4-destdir-support.patch
