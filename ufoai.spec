@@ -11,6 +11,11 @@ Patch0:		ufoai-2.4-destdir-support.patch
 Patch1:		ufoai-2.4-dont-strip-binaries.patch
 Patch2:		ufoai-2.4-missing-shebang.patch
 Patch3:		ufoai-2.4-CameraDrawMode-anonymous-namespace-fix.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(gdkglext-x11-1.0)
 BuildRequires:	pkgconfig(gtk+)
